@@ -36,3 +36,50 @@ numbers.forEach(number => {
   }
   document.body.innerHTML += `<p>Číslo ${number} je vzdálené ${distance} od čísla 5.</p>`;
 });
+
+
+//Vypište do stránky druhé mocniny vzdáleností všech čísel od čísla 5.
+const distances = numbers.map(number => {
+  let distance = number - 5;
+  if (distance < 0) {
+    distance = -distance;
+  }
+  return distance;
+});
+
+const mocniny = distances.map(distance => distance * distance);
+
+document.body.innerHTML += `<p>${mocniny.join(', ')}</p>`;
+
+
+
+//Spočítejte, kolik je v seznamu záporných čísel.
+let zaporneCislo = 0;
+
+numbers.forEach(number => number < 0 && zaporneCislo++);
+
+document.body.innerHTML += `<p>Počet záporných čísel: ${zaporneCislo}</p>`;
+
+
+
+//Spočítejte součet všech čísel v poli.
+let soucet = 0;
+
+numbers.forEach(number => soucet += number);
+
+document.body.innerHTML += `<p>Součet všech čísel: ${soucet}</p>`;
+
+
+//Spočítejte průměr všech čísel v poli.
+const prumer = soucet / numbers.length;
+
+document.body.innerHTML += `<p>Průměr všech čísel: ${prumer}</p>`;
+
+
+//Spočítejte součet všech kladných čísel v poli.
+let kladnySoucet = 0;
+
+numbers.forEach(number => number >= 0 && (kladnySoucet += number));
+
+document.body.innerHTML += `<p>Součet všech kladných čísel: ${kladnySoucet}</p>`;
+
